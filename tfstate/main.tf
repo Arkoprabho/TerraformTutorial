@@ -10,7 +10,7 @@ resource "random_string" "random_sixteen" {
 }
 
 resource "aws_s3_bucket" "state_bucket" {
-  bucket = "state-bucket-${random_string.random_sixteen}"
+  bucket = "state-bucket-${random_string.random_sixteen.result}"
 
   # Prevent accidental deletion of this S3 bucket
   lifecycle {
