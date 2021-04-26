@@ -8,3 +8,7 @@ resource "random_string" "random_sixteen" {
   special          = false
   upper            = false
 }
+
+resource "aws_s3_bucket" "state_bucket" {
+  bucket = "state-bucket-${random_string.random_sixteen}"
+}
