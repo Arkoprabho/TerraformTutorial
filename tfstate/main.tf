@@ -16,4 +16,10 @@ resource "aws_s3_bucket" "state_bucket" {
   lifecycle {
     prevent_destroy = true
   }
+
+  # Enable versioning so we can see the full revision history of our
+  # state files
+  versioning {
+    enabled = true
+  }
 }
