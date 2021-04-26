@@ -11,4 +11,9 @@ resource "random_string" "random_sixteen" {
 
 resource "aws_s3_bucket" "state_bucket" {
   bucket = "state-bucket-${random_string.random_sixteen}"
+
+  # Prevent accidental deletion of this S3 bucket
+  lifecycle {
+    prevent_destroy = true
+  }
 }
