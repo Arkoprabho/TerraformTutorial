@@ -31,3 +31,15 @@ variable "encryption_algorithm" {
   description = "The encryption algorithm to use"
   type        = string
 }
+
+# DynamoDB variables
+variable "billing_mode" {
+  description = "Billing mode for the DynamoDB table"
+  type        = string
+  default     = "PAY_PER_REQUEST"
+}
+
+variable "hash_key" {
+  description = "The hash key for the dynamodb table"
+  type        = string
+}
