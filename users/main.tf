@@ -21,7 +21,8 @@ data "aws_iam_policy_document" "dummy_policy" {
 }
 
 resource "aws_iam_user" "dummy_user" {
-  name = "dummy_user"
+  name    = "dummy_user"
+  pgp_key = var.pgp_key
 }
 
 resource "aws_iam_access_key" "dummy_access_key" {
