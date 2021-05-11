@@ -10,3 +10,7 @@ terraform {
 resource "aws_iam_user" "dummy_user" {
   name = "dummy_user"
 }
+
+resource "aws_iam_access_key" "dummy_access_key" {
+  user = aws_iam_user.dummy_user.name
+}
