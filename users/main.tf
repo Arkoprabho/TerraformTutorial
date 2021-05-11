@@ -27,3 +27,10 @@ resource "aws_iam_user" "dummy_user" {
 resource "aws_iam_access_key" "dummy_access_key" {
   user = aws_iam_user.dummy_user.name
 }
+
+resource "aws_iam_user_policy" "dummy_policy" {
+  name = "dummy_policy"
+  user = aws_iam_user.dummy_user.name
+
+  policy = data.aws_iam_policy_document.dummy_policy.json
+}
