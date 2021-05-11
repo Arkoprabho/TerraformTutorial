@@ -1,12 +1,12 @@
 provider "aws" {
-  region = "us-east-1"
+  region  = "us-east-1"
   profile = "personal"
 }
 
 resource "random_string" "random_sixteen" {
-  length           = 16
-  special          = false
-  upper            = false
+  length  = var.random_string_length
+  special = var.include_special
+  upper   = var.include_upper
 }
 
 resource "aws_s3_bucket" "state_bucket" {
