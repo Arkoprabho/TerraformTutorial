@@ -14,3 +14,20 @@ variable "include_upper" {
   description = "Whether to include upper characters in random string"
   type        = bool
 }
+
+# S3 bucket variables
+variable "prevent_destroy" {
+  description = "Prevent accidental destruction of S3 bucket"
+  default     = true
+  type        = bool
+}
+
+variable "enable_versioning" {
+  description = "Whether to enable versioning"
+  type        = bool
+}
+
+variable "encryption_algorithm" {
+  description = "The encryption algorithm to use"
+  type        = string
+}
