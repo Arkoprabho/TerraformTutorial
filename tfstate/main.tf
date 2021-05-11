@@ -9,8 +9,12 @@ resource "random_string" "random_sixteen" {
   upper   = var.include_upper
 }
 
+locals {
+  bucket_name = "state-bucket-${random_string.random_sixteen.result}"
+}
+
 resource "aws_s3_bucket" "state_bucket" {
-  bucket = "state-bucket-${random_string.random_sixteen.result}"
+  bucket = local.bucket_name
 
   # Prevent accidental deletion of this S3 bucket
   lifecycle {
