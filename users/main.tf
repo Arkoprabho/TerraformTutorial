@@ -7,6 +7,19 @@ terraform {
   backend "s3" {}
 }
 
+data "aws_iam_policy_document" "dummy_policy" {
+  statement {
+    sid = "DummyPolicyStatementID"
+    actions = [
+      "s3:*"
+    ]
+    resources = [
+      "*"
+    ]
+    effect = "Allow"
+  }
+}
+
 resource "aws_iam_user" "dummy_user" {
   name = "dummy_user"
 }
