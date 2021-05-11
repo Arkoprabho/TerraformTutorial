@@ -21,12 +21,12 @@ data "aws_iam_policy_document" "dummy_policy" {
 }
 
 resource "aws_iam_user" "dummy_user" {
-  name    = "dummy_user"
-  pgp_key = var.pgp_key
+  name = "dummy_user"
 }
 
 resource "aws_iam_access_key" "dummy_access_key" {
-  user = aws_iam_user.dummy_user.name
+  user    = aws_iam_user.dummy_user.name
+  pgp_key = var.pgp_key
 }
 
 resource "aws_iam_user_policy" "dummy_policy" {
