@@ -16,12 +16,6 @@ variable "include_upper" {
 }
 
 # S3 bucket variables
-variable "prevent_destroy" {
-  description = "Prevent accidental destruction of S3 bucket"
-  default     = true
-  type        = bool
-}
-
 variable "enable_versioning" {
   description = "Whether to enable versioning"
   type        = bool
